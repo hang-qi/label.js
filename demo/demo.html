@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Label.js</title>
+    <script src="../label.js"></script>
+    <style type="text/css">
+        .container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+
+        .container .canvas,
+        .container .images {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .container .canvas {
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <h1>Demo</h1>
+
+    <div class="container">
+        <canvas class="canvas" id="main-canvas" width="500" height="500">
+        </canvas>
+        <div class="image"><image src="lena.jpg"></image></div>
+    </div>
+
+    <script language="javascript">
+        var can = labeljs('#main-canvas');
+        can.drawRect(
+            {'x' : 120, 'y' : 80, 'width' : 300, 'height': 300,
+             'label': 'Lena', 'color': 'rgb(50,150,50)'});
+    </script>
+</body>
+</html>
