@@ -16,7 +16,8 @@ var labeljs = (function(canvas) {
         'offset': 0,
         'lineWidth': 2,
         'fontSize': '14px',
-        'fontName': 'Helvetica'
+        'fontName': 'Helvetica',
+        'strokeStyle': 'red'
     }
 
     function setOptions(opt) {
@@ -48,6 +49,17 @@ var labeljs = (function(canvas) {
         if (box.label){
             drawBoxLabel(box);
         }
+        ctx.restore();
+    }
+
+    self.drawLine = function(x1, y1, x2, y2){
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.lineWidth = options.lineWidth;
+        ctx.strokeStyle = options.strokeStyle;
+        ctx.stroke();
         ctx.restore();
     }
 
